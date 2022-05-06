@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chars View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CharsViewController" customModule="Chart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-hL-vHZ">
+                                <rect key="frame" x="94" y="68" width="226" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="226" id="WGS-cD-3eV"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Month"/>
+                                    <segment title="Week"/>
+                                </segments>
+                                <connections>
+                                    <action selector="periodChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xOs-1c-dP1"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1J-9a-c0d" customClass="CandleStickChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="492.5" width="374" height="345.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYc-bB-MR7" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="123" width="374" height="345.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A1J-9a-c0d" secondAttribute="trailing" constant="20" id="77M-iz-Gvu"/>
+                            <constraint firstItem="nYc-bB-MR7" firstAttribute="top" secondItem="Whh-hL-vHZ" secondAttribute="bottom" constant="24" id="Axs-kE-6Ka"/>
+                            <constraint firstItem="nYc-bB-MR7" firstAttribute="height" secondItem="A1J-9a-c0d" secondAttribute="height" id="BUM-zW-oBJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A1J-9a-c0d" secondAttribute="bottom" constant="24" id="EXF-Sb-zMU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nYc-bB-MR7" secondAttribute="trailing" constant="20" id="Hg5-L0-o4o"/>
+                            <constraint firstItem="Whh-hL-vHZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="KIT-i9-UVa"/>
+                            <constraint firstItem="nYc-bB-MR7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NL2-qy-Mw2"/>
+                            <constraint firstItem="Whh-hL-vHZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nbt-fc-gZn"/>
+                            <constraint firstItem="A1J-9a-c0d" firstAttribute="top" secondItem="nYc-bB-MR7" secondAttribute="bottom" constant="24" id="W1f-hf-rjq"/>
+                            <constraint firstItem="A1J-9a-c0d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kwV-ZP-LGf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="candleChartView" destination="A1J-9a-c0d" id="a5g-cB-tCI"/>
+                        <outlet property="lineChartView" destination="nYc-bB-MR7" id="jJB-N1-biF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
